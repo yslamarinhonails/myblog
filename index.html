@@ -1,153 +1,176 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ysla Marinho | Beauty Nails</title>
+  <title>Ysla Marinho Nails</title>
   <style>
     :root {
-      --marrom-chocolate: #4e342e;
       --offwhite: #fdf8f3;
-    }body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom, var(--marrom-chocolate) 0%, var(--marrom-chocolate) 40%, var(--offwhite) 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  color: var(--marrom-chocolate);
-}
+      --bege: #d7bfa6;
+      --bege-escuro: #c6ac90;
+      --marrom: #4e342e;
+    }
 
-.container {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--offwhite);
+      color: var(--marrom);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      min-height: 100vh;
+      position: relative;
+      animation: fadeIn 1.5s ease;
+      overflow-x: hidden;
+    }
 
-.logo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.15);
-}
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40vh;
+      background: linear-gradient(to top, rgba(198, 172, 144, 0.6), transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-h1 {
-  font-size: 26px;
-  margin: 10px 0 0;
-  letter-spacing: 1px;
-  text-align: center;
-}
+    .logo-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin-top: 40px;
+      animation: bounceIn 1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-h2 {
-  font-size: 13px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  letter-spacing: 3px;
-  text-align: center;
-  align-self: flex-start;
-  margin-left: 10%;
-}
+    .logo-container::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      right: -14px;
+      bottom: -14px;
+      background: radial-gradient(circle at center, var(--bege) 60%, var(--offwhite) 100%);
+      border-radius: 50%;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
+      animation: wave 4s ease-in-out infinite;
+    }
 
-.links {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0 20px;
-  gap: 12px;
-}
+    @keyframes wave {
+      0%, 100% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.04) rotate(1deg);
+      }
+    }
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: var(--offwhite);
-  color: var(--marrom-chocolate);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 12px 18px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  gap: 14px;
-}
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
 
-.btn:hover {
-  background-color: #f1e7de;
-}
+    .links {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%;
+      max-width: 300px;
+    }
 
-.btn .icon {
-  background-color: var(--marrom-chocolate);
-  border-radius: 50%;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .link-button {
+      padding: 15px;
+      background-color: var(--bege);
+      color: var(--marrom);
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-.btn .icon img {
-  width: 18px;
-  height: 18px;
-  filter: brightness(0) invert(1);
-}
+    .link-button:hover {
+      background-color: var(--bege-escuro);
+      transform: scale(1.03);
+    }
 
-@media (max-width: 500px) {
-  .logo {
-    width: 160px;
-    height: 160px;
-  }
+    .link-button img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) saturate(100%) invert(26%) sepia(16%) saturate(1176%) hue-rotate(352deg) brightness(92%) contrast(86%);
+    }
 
-  h1 {
-    font-size: 22px;
-  }
+    @media (max-width: 600px) {
+      .logo-container {
+        width: 140px;
+        height: 140px;
+      }
 
-  h2 {
-    font-size: 12px;
-  }
-}
+      .logo-container::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+      }
 
+      .link-button {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      .link-button img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="logo_circular_full.png" alt="Logo Ysla Marinho" />
-    </div>
-    <h1>YSLA MARINHO</h1>
-    <h2>BEAUTY NAILS</h2>
-    <div class="links">
-      <a class="btn" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
-        <div class="icon">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
-        </div>
-        Fale conosco via WhatsApp
-      </a>
-      <a class="btn" href="https://www.instagram.com/yslamarinhonails?igsh=MW1seXV3eHBsaTgzbg==" target="_blank">
-        <div class="icon">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
-        </div>
-        Siga-me no Instagram
-      </a>
-      <a class="btn" href="https://maps.app.goo.gl/nLpHfsbE2xF5uhbJ6?g_st=com.google.maps.preview.copy" target="_blank">
-        <div class="icon">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg" alt="Localização" />
-        </div>
-        Veja nossa localização
-      </a>
-    </div>
+  <div class="logo-container">
+    <img src="logo_circular_full.png" alt="Ysla Marinho Logo" />
+  </div>
+  <div class="links">
+    <a class="link-button" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+      WhatsApp
+    </a>
+    <a class="link-button" href="https://www.instagram.com/yslamarinhonails?igsh=MW1seXV3eHBsaTgzbg==" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+      Instagram
+    </a>
+    <a class="link-button" href="https://maps.app.goo.gl/nLpHfsbE2xF5uhbJ6?g_st=com.google.maps.preview.copy" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg" alt="Localização" />
+      Localização
+    </a>
   </div>
 </body>
 </html>
