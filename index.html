@@ -3,174 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ysla Marinho Nails</title>
+  <title>Ysla Marinho | Beauty Nails</title>
   <style>
     :root {
-      --offwhite: #fdf8f3;
-      --bege: #d7bfa6;
-      --bege-escuro: #c6ac90;
-      --marrom: #4e342e;
+      --creme: #fbe8d2;
+      --caramelo: #b9835b;
+      --caramelo-escuro: #9d6c4e;
+      --dourado: #cfa86e;
+      --texto: #4b2e2a;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--offwhite);
-      color: var(--marrom);
+      font-family: 'Georgia', serif;
+      background-color: var(--creme);
+      color: var(--texto);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: start;
       min-height: 100vh;
-      position: relative;
-      animation: fadeIn 1.5s ease;
-      overflow-x: hidden;
+      padding: 40px 20px;
     }
 
-    body::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    .top-banner {
       width: 100%;
-      height: 40vh;
-      background: linear-gradient(to top, rgba(198, 172, 144, 0.6), transparent);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .logo-container {
+      background-color: var(--caramelo);
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      padding: 60px 20px 100px;
+      text-align: center;
       position: relative;
-      width: 180px;
-      height: 180px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      margin-top: 40px;
-      animation: bounceIn 1s ease;
+      background: white;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .logo-container::before {
-      content: "";
-      position: absolute;
-      top: -14px;
-      left: -14px;
-      right: -14px;
-      bottom: -14px;
-      background: radial-gradient(circle at center, var(--bege) 60%, var(--offwhite) 100%);
-      border-radius: 50%;
-      z-index: -1;
-      mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
-      -webkit-mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
-      animation: wave 4s ease-in-out infinite;
-    }
-
-    @keyframes wave {
-      0%, 100% {
-        transform: scale(1) rotate(0deg);
-      }
-      50% {
-        transform: scale(1.04) rotate(1deg);
-      }
-    }
-
-    .logo-container img {
+    .logo img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: lighter;
     }
 
     .links {
-      margin-top: 40px;
+      margin-top: -60px;
+      width: 100%;
+      max-width: 320px;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      width: 90%;
-      max-width: 300px;
+      align-items: center;
     }
 
     .link-button {
-      padding: 15px;
-      background-color: var(--bege);
-      color: var(--marrom);
-      text-align: center;
+      width: 100%;
+      padding: 14px 20px;
+      background-color: var(--caramelo);
+      border-radius: 10px;
+      color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .link-button:hover {
-      background-color: var(--bege-escuro);
-      transform: scale(1.03);
+      background-color: var(--caramelo-escuro);
+      transform: scale(1.02);
     }
 
     .link-button img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) saturate(100%) invert(26%) sepia(16%) saturate(1176%) hue-rotate(352deg) brightness(92%) contrast(86%);
+      width: 22px;
+      height: 22px;
+      filter: invert(1);
     }
 
-    @media (max-width: 600px) {
-      .logo-container {
-        width: 140px;
-        height: 140px;
-      }
-
-      .logo-container::before {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
-      }
-
-      .link-button {
-        padding: 12px;
-        font-size: 14px;
-      }
-
-      .link-button img {
-        width: 20px;
-        height: 20px;
-      }
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: var(--texto);
+      opacity: 0.7;
+      text-align: center;
     }
 
-    @keyframes bounceIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
+    @media (max-width: 480px) {
+      .title {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="logo_circular_full.png" alt="Ysla Marinho Logo" />
+
+  <div class="top-banner">
+    <div class="logo">
+      <img src="logo_circular_full.png" alt="Logo Ysla Marinho" />
+    </div>
+    <div class="title">Ysla Marinho</div>
+    <div class="subtitle">BEAUTY NAILS</div>
   </div>
+
   <div class="links">
     <a class="link-button" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
-      WhatsApp
+      Fale conosco via WhatsApp
     </a>
     <a class="link-button" href="https://www.instagram.com/yslamarinhonails?igsh=MW1seXV3eHBsaTgzbg==" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
-      Instagram
+      Siga-me no Instagram
     </a>
     <a class="link-button" href="https://maps.app.goo.gl/nLpHfsbE2xF5uhbJ6?g_st=com.google.maps.preview.copy" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg" alt="Localização" />
-      Localização
+      Veja nossa localização
     </a>
   </div>
+
+  <div class="footer-note">
+    Toque nos botões para interagir
+  </div>
+
 </body>
 </html>
