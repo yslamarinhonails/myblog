@@ -72,12 +72,8 @@
     }
 
     @keyframes wave {
-      0%, 100% {
-        transform: scale(1) rotate(0deg);
-      }
-      50% {
-        transform: scale(1.04) rotate(1deg);
-      }
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.04) rotate(1deg); }
     }
 
     .logo-container img {
@@ -153,42 +149,36 @@
       100% { transform: scale(1); }
     }
 
-    /* Estilo do ícone de som */
     .sound-toggle {
       position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background-color: var(--bege);
+      bottom: 12px;
+      right: 12px;
+      background: none;
       border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      padding: 0;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      opacity: 0.5;
+      width: 20px;
+      height: 20px;
       z-index: 1000;
-      transition: background-color 0.3s ease;
     }
 
     .sound-toggle:hover {
-      background-color: var(--bege-escuro);
+      opacity: 1;
     }
 
-    .sound-toggle img {
-      width: 24px;
-      height: 24px;
+    .sound-toggle svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--marrom);
     }
   </style>
 </head>
 <body>
-  <!-- LOGO -->
   <div class="logo-container">
     <img src="nova-logo.png" alt="Ysla Marinho Logo" />
   </div>
 
-  <!-- LINKS -->
   <div class="links">
     <a class="link-button" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
@@ -204,32 +194,32 @@
     </a>
   </div>
 
-  <!-- ÁUDIO -->
-  <audio id="bgAudio" loop autoplay>
-    <source src="audio.mp3" type="audio/mpeg" />
+  <!-- Áudio de fundo -->
+  <audio id="bgAudio" autoplay loop>
+    <source src="ssstik.io_1749610162519.mp3" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
 
-  <!-- BOTÃO DE SOM -->
+  <!-- Botão de som -->
   <button class="sound-toggle" onclick="toggleSound()" aria-label="Alternar som">
-    <img id="soundIcon" src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Som ligado" />
+    <svg id="soundIcon" viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+    </svg>
   </button>
 
-  <!-- SCRIPT -->
   <script>
-    const audio = document.getElementById('bgAudio');
-    const soundIcon = document.getElementById('soundIcon');
-    let isMuted = false;
+    const audio = document.getElementById("bgAudio");
+    const icon = document.getElementById("soundIcon");
+    let muted = false;
 
-    // volume ambiente inicial
-    audio.volume = 0.2;
+    audio.volume = 0.3;
 
     function toggleSound() {
-      isMuted = !isMuted;
-      audio.muted = isMuted;
-      soundIcon.src = isMuted
-        ? 'https://cdn-icons-png.flaticon.com/512/727/727240.png'
-        : 'https://cdn-icons-png.flaticon.com/512/727/727245.png';
+      muted = !muted;
+      audio.muted = muted;
+      icon.innerHTML = muted
+        ? '<path d="M16.5 12l4.5 4.5-1.5 1.5L15 13.5l-4.5 4.5-1.5-1.5L13.5 12 9 7.5l1.5-1.5L15 10.5l4.5-4.5 1.5 1.5L16.5 12z"/>'
+        : '<path d="M3 9v6h4l5 5V4L7 9H3z"/>';
     }
   </script>
 </body>
