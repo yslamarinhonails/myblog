@@ -59,10 +59,10 @@
     .logo-container::before {
       content: "";
       position: absolute;
-      top: -6px;
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
       background: radial-gradient(circle at center, var(--bege) 60%, var(--offwhite) 100%);
       border-radius: 50%;
       z-index: -1;
@@ -91,7 +91,7 @@
       margin-top: 40px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 35px;
       width: 90%;
       max-width: 300px;
     }
@@ -110,17 +110,62 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .links .link-button:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .links .link-button:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .links .link-button:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
     }
 
     .link-button:hover {
       background-color: var(--bege-escuro);
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .link-button img {
       width: 24px;
       height: 24px;
       filter: brightness(0) saturate(100%) invert(26%) sepia(16%) saturate(1176%) hue-rotate(352deg) brightness(92%) contrast(86%);
+    }
+
+    /* Ícone de som */
+    .sound-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--bege);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .sound-toggle img {
+      width: 24px;
+      height: 24px;
     }
 
     @media (max-width: 600px) {
@@ -130,10 +175,10 @@
       }
 
       .logo-container::before {
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
       }
 
       .link-button {
@@ -142,6 +187,16 @@
       }
 
       .link-button img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .sound-toggle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .sound-toggle img {
         width: 20px;
         height: 20px;
       }
@@ -158,6 +213,7 @@
   <div class="logo-container">
     <img src="nova-logo.png" alt="Ysla Marinho Logo" />
   </div>
+
   <div class="links">
     <a class="link-button" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
@@ -172,5 +228,32 @@
       Localização
     </a>
   </div>
+
+  <!-- Áudio de fundo -->
+  <audio id="bg-audio" autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2021/12/23/audio_3f29b81052.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Botão de controle de som -->
+  <button class="sound-toggle" onclick="toggleSound()">
+    <img id="sound-icon" src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Som" />
+  </button>
+
+  <script>
+    const audio = document.getElementById('bg-audio');
+    const soundIcon = document.getElementById('sound-icon');
+    audio.volume = 0.2; // Volume suave
+
+    function toggleSound() {
+      if (audio.paused) {
+        audio.play();
+        soundIcon.src = "https://cdn-icons-png.flaticon.com/512/727/727269.png"; // Ícone som ligado
+      } else {
+        audio.pause();
+        soundIcon.src = "https://cdn-icons-png.flaticon.com/512/727/727240.png"; // Ícone som desligado
+      }
+    }
+  </script>
 </body>
 </html>
