@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ysla Marinho Nails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --offwhite: #fdf8f3;
@@ -83,8 +84,33 @@
       border-radius: 50%;
     }
 
+    /* NOVO BLOCO DO NOME */
+    .logo-name {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-top: 24px;
+      text-align: center;
+      background: linear-gradient(to right, #b58e4f, #d4af7f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    .logo-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 4px;
+      margin-bottom: 32px;
+      background: linear-gradient(to right, #b58e4f, #d4af7f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 4px;
+    }
+
     .links {
-      margin-top: 40px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -125,11 +151,14 @@
         height: 140px;
       }
 
-      .logo-container::before {
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
+      .logo-name {
+        font-size: 22px;
+      }
+
+      .logo-subtitle {
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
       }
 
       .link-button {
@@ -179,6 +208,9 @@
     <img src="nova-logo.png" alt="Ysla Marinho Logo" />
   </div>
 
+  <div class="logo-name">YSLA MARINHO</div>
+  <div class="logo-subtitle">BEAUTY NAILS</div>
+
   <div class="links">
     <a class="link-button" href="https://wa.me/5594988094247?text=Ol%C3%A1%20quero%20agendar%20com%20a%20Ysla" target="_blank">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
@@ -194,7 +226,7 @@
     </a>
   </div>
 
-  <!-- Áudio de fundo (inicialmente pausado) -->
+  <!-- Áudio de fundo -->
   <audio id="bgAudio" loop>
     <source src="ssstik.io_1749610162519.mp3" type="audio/mpeg" />
     Seu navegador não suporta áudio.
