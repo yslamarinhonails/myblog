@@ -47,44 +47,25 @@
 
     .logo-container {
       position: relative;
-      width: 180px;
-      height: 180px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       margin-top: 40px;
       animation: bounceIn 1s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .logo-container::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
+      overflow: hidden;
       background: radial-gradient(circle at center, var(--bege) 60%, var(--offwhite) 100%);
-      border-radius: 50%;
-      z-index: -1;
-      mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
-      -webkit-mask-image: radial-gradient(circle at center, black 85%, transparent 100%);
-      animation: wave 4s ease-in-out infinite;
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.04) rotate(1deg); }
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
 
     .logo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
     }
 
-    /* NOVO BLOCO DO NOME */
     .logo-name {
       font-family: 'Cinzel', serif;
       font-size: 28px;
@@ -147,8 +128,8 @@
 
     @media (max-width: 600px) {
       .logo-container {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
       }
 
       .logo-name {
@@ -205,7 +186,7 @@
 </head>
 <body>
   <div class="logo-container">
-    <img src="nova-logo.png" alt="Ysla Marinho Logo" />
+    <img src="file-BQRHAjiQmVDPgdmExymU7f" alt="Logo Ysla Marinho" />
   </div>
 
   <div class="logo-name">YSLA MARINHO</div>
